@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>MAAR MOVIE</title>
-    <link rel="stylesheet" href="styles/general.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/video.css">
-    <link rel="stylesheet" href="styles/sidebar.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #content
+       
+        .highlight {
+            background-color: rgb(148, 255, 134);
+        }
+    </style>
 </head>
 <body>
+    <input type="text" id="searchInput" placeholder="Enter text to find">
+    <button onclick="searchText()">Search</button>
+
+    <div id="content">
+       
+
+    <script>
+        function searchText() {
+            // Clear previous highlights
+            document.querySelectorAll('.highlight').forEach(function(el) {
+                el.classList.remove('highlight');
+            });
+
+            var input = document.getElementById('searchInput').value;
+            var content = document.getElementById('content');
+            var regex = new RegExp('(' + input + ')', 'gi');
+            
+            content.innerHTML = content.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+        }
+    </script>
 
    <hi>HI,Welcome TO MAAR webside</hi>
    <p>I am Md Adil Ahmed Rajon. This webside can give you the Link of some Indian Bangla Movie and Bangladesh Some Move.</p>
